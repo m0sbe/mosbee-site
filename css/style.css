@@ -515,17 +515,30 @@ ul { margin: 0; padding: 0; list-style: none; }
     margin-top: 0;
     min-height: 0;
     padding-top: calc(var(--header-h) + 24px);
+    overflow: visible;
   }
 
-  .hero__side { display: none; }
+  /* order: name → title → 3D logo → lead */
+  .hero__content { display: contents; }
+  .hero__name { order: 1; }
+  .hero .h-xl { order: 2; }
+  .hero__logo { order: 3; }
+  .hero__lead { order: 4; margin-top: 8px; padding-right: 32px; }
 
+  .hero__side {
+    top: auto;
+    right: 8px;
+    bottom: var(--pad);
+    font-size: 11px;
+  }
+
+  /* logo slightly wider than the frame, but 4px inside the screen edges */
   .hero__logo {
     position: relative;
     right: auto;
     bottom: auto;
-    order: -1;
-    width: 100%;
-    margin: 0 0 8px;
+    width: calc(100vw - 8px);
+    margin: 8px 0 0 calc(50% - 50vw + 4px);
   }
 
   .case { grid-template-columns: 1fr; }
