@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /deploy.sh
+
+Sitemap: https://m0sbee.com/sitemap.xml
