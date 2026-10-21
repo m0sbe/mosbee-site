@@ -119,10 +119,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ---------- header ---------- */
 
-/* header is a block of content width (as on the old site), not a full-width bar */
+/* header is a block of content width (as on the old site), not a full-width bar;
+   it is fixed and overlaps the first block */
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
 }
 
@@ -220,8 +223,8 @@ ul { margin: 0; padding: 0; list-style: none; }
   display: grid;
   grid-template-columns: 1fr;
   margin-top: 0;
-  min-height: min(calc(100svh - var(--header-h)), 900px);
-  padding-top: clamp(48px, 9vw, 120px);
+  min-height: min(100svh, 900px);
+  padding-top: calc(var(--header-h) + clamp(40px, 8vw, 110px));
   overflow: hidden;
 }
 
@@ -238,7 +241,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 .hero__side {
   position: absolute;
-  top: clamp(48px, 9vw, 120px);
+  top: calc(var(--header-h) + clamp(40px, 8vw, 110px));
   right: 20px;
   z-index: 2;
   writing-mode: vertical-rl;
@@ -511,7 +514,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .hero {
     margin-top: 0;
     min-height: 0;
-    padding-top: 32px;
+    padding-top: calc(var(--header-h) + 24px);
   }
 
   .hero__side { display: none; }
