@@ -377,6 +377,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   color: var(--muted);
 }
 
+/* wide screens: one row spread edge to edge with equal gaps (auto layout) */
+@media (min-width: 1200px) {
+  .tools { justify-content: space-between; }
+}
+
 /* ---------- experience ---------- */
 
 .clients { display: grid; }
