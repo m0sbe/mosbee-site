@@ -1,0 +1,25 @@
+{
+  "slug": "q-brand",
+  "order": 1,
+  "cover": "/img/q.jpg",
+  "cover_w": 460,
+  "cover_h": 428,
+  "en": {
+    "meta_title": "Managing the Q brand — case | mosbee",
+    "label": "[01] / q filter / q lubricants / q energy / q freeze",
+    "title": "Managing<br>the Q brand",
+    "lead": "Long-term brand development: from print materials and packaging to a complete visual system, new product lines, and expansion into a new market.",
+    "tags": "/ brand management / packaging / print / b2b",
+    "cover_alt": "Q brand products: filters and lubricants",
+    "sections": []
+  },
+  "ru": {
+    "meta_title": "Ведение бренда Q — кейс | mosbee",
+    "label": "[01] / q filter / q lubricants / q energy / q freeze",
+    "title": "Ведение<br>бренда Q",
+    "lead": "Долгосрочное развитие бренда: от полиграфии и упаковки до визуальной системы, продуктовых линеек и выхода на новый рынок.",
+    "tags": "/ brand management / packaging / print / b2b",
+    "cover_alt": "Продукция бренда Q: фильтры и масла",
+    "sections": []
+  }
+}
