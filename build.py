@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build m0sbee.com into docs/ (served by GitHub Pages).
+"""Build mosbee.ru into docs/ (uploaded to the server by deploy.sh).
 
 src/layout.html          page skeleton: head, header, scripts
 src/pages/home.<lang>    main page content, written by hand per language
@@ -20,7 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 SRC = ROOT / "src"
 OUT = ROOT / "docs"
-SITE = "https://m0sbee.com"
+SITE = "https://mosbee.ru"
 LANGS = ("en", "ru")
 
 TEXT = {
