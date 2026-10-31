@@ -31,3 +31,10 @@ if ("IntersectionObserver" in window) {
 }
 
 document.querySelectorAll("[data-year]").forEach((el) => { el.textContent = new Date().getFullYear(); });
+
+// language switch: remember the choice, so the root page keeps it instead of guessing by country
+document.querySelectorAll(".lang a").forEach((a) => {
+  a.addEventListener("click", () => {
+    document.cookie = "lang=" + a.textContent.trim() + "; path=/; max-age=31536000; SameSite=Lax";
+  });
+});
