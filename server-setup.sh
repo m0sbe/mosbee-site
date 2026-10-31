@@ -9,9 +9,9 @@ M=/usr/local/mgr5/sbin/mgrctl
 
 if [[ "$1" == "https" ]]; then
   ssh "$SERVER" "
-    $M -m ispmgr webdomain.edit sok=ok elid=mosbee.ru secure=on ssl_cert=letsencrypt
-    $M -m ispmgr letsencrypt.generate sok=ok elid=mosbee.ru
-    $M -m ispmgr webdomain.edit sok=ok elid=mosbee.ru redirect_http=on
+    # Real Let's Encrypt certificate: the letsencrypt.generate form (not elid=domain, which hits another site's task).
+    $M -m ispmgr letsencrypt.generate sok=ok username=oil domain_name=mosbee.ru crtname=mosbee.ru_le email=webmaster@mosbee.ru enable_cert=on domain_type=web dns_check=off
+    $M -m ispmgr webdomain.edit sok=ok elid=mosbee.ru redirect_http=on redirect_www=from_www
     nginx -t && systemctl reload nginx
     echo; echo '--- certificate:'
     openssl s_client -connect 188.120.248.52:443 -servername mosbee.ru </dev/null 2>/dev/null | openssl x509 -noout -issuer -enddate
@@ -21,6 +21,8 @@ fi
 
 ssh "$SERVER" "
   $M -m ispmgr webdomain.edit sok=ok name=mosbee.ru owner=oil email=webmaster@mosbee.ru ipaddr=188.120.248.52 php=off secure=off aliases=www.mosbee.ru
+  # The panel may bind a new site to the docker bridge address; the field that really sets the IP is ipaddrs.
+  $M -m ispmgr webdomain.edit sok=ok elid=mosbee.ru ipsrc=manual ipaddrs=188.120.248.52 srv_gzip=on gzip_level=5
   echo '--- site in the panel:'
   $M -m ispmgr webdomain | grep 'name=mosbee.ru'
   echo '--- nginx listen (must be 188.120.248.52, not the docker bridge):'
